@@ -1,29 +1,17 @@
-let displayValue = '0';
+let display = document.getElementById('display');
 
-function updateDisplay() {
-    document.getElementById('display').innerText = displayValue;
-}
-
-function appendToDisplay(char) {
-    if (displayValue === '0' && char !== '.') {
-        displayValue = char;
-    } else {
-        displayValue += char;
-    }
-    updateDisplay();
+function appendToDisplay(value) {
+    display.value += value;
 }
 
 function clearDisplay() {
-    displayValue = '0';
-    updateDisplay();
+    display.value = '';
 }
 
 function calculate() {
     try {
-        displayValue = eval(displayValue).toString();
-        updateDisplay();
+        display.value = eval(display.value);
     } catch (error) {
-        displayValue = 'Error';
-        updateDisplay();
+        display.value = 'Error';
     }
 }
