@@ -23,5 +23,5 @@ button {
 }
 
 .content {
-    background: linear-gradient(red, blue)
+    background: linear-gradient(repeat, red blue)
 }
