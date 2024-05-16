@@ -1,3 +1,16 @@
+let display = document.getElementById('display');
+let historyContainer = document.getElementById('history-container');
+let historyList = document.getElementById('history-list');
+let history = [];
+
+function addToDisplay(value) {
+  display.value += value;
+}
+
+function clearDisplay() {
+  display.value = '';
+}
+
 function calculate() {
   try {
     let result = eval(display.value);
@@ -9,17 +22,15 @@ function calculate() {
   }
 }
 
-function clearHistory() {
-  history = [];
-  updateHistory();
+function toggleHistory() {
+  historyContainer.style.display = historyContainer.style.display === 'none' ? 'flex' : 'none';
 }
 
-// Keyboard support
-document.addEventListener('keydown', function(event) {
-  const key = event.key;
-  if (!isNaN(key) || key === '.' || key === '+' || key === '-' || key === '*' || key === '/' || key === 'Enter') {
-    addToDisplay(key);
-  } else if (key === 'Escape') {
-    clearDisplay();
-  }
-});
+function updateHistory() {
+  historyList.innerHTML = '';
+  history.forEach(item => {
+    let li = document.createElement('li');
+    li.textContent = item;
+    historyList.appendChild(li);
+  });
+}
