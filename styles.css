@@ -1,31 +1,78 @@
-let display = document.getElementById('display');
-let historyList = document.getElementById('history-list');
-let history = [];
-
-function addToDisplay(value) {
-  display.value += value;
+.calculator {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-function clearDisplay() {
-  display.value = '';
+.display {
+  width: calc(100% - 40px);
+  height: 50px;
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: right;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #fff;
 }
 
-function calculate() {
-  try {
-    let result = eval(display.value);
-    history.push(display.value + ' = ' + result);
-    display.value = result;
-    updateHistory();
-  } catch (error) {
-    display.value = 'Error';
-  }
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
 }
 
-function updateHistory() {
-  historyList.innerHTML = '';
-  history.forEach(item => {
-    let li = document.createElement('li');
-    li.textContent = item;
-    historyList.appendChild(li);
-  });
+.buttons button {
+  width: 100%;
+  height: 50px;
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.buttons button:hover {
+  background-color: #e0e0e0;
+}
+
+.operator {
+  background-color: #ff6347;
+  color: #fff;
+}
+
+.operator:hover {
+  background-color: #ff4d32;
+}
+
+.clear {
+  background-color: #778899;
+  color: #fff;
+}
+
+.clear:hover {
+  background-color: #5f7684;
+}
+
+.history {
+  margin-top: 20px;
+}
+
+.history h3 {
+  margin-bottom: 10px;
+}
+
+#history-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+#history-list li {
+  margin-bottom: 5px;
+  background-color: #f0f0f0;
+  padding: 8px;
+  border-radius: 5px;
 }
