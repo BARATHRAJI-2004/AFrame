@@ -1,27 +1,31 @@
-.calculator {
-    width: 250px;
-    margin: 0 auto;
+let display = document.getElementById('display');
+let historyList = document.getElementById('history-list');
+let history = [];
+
+function addToDisplay(value) {
+  display.value += value;
 }
 
-#display {
-    width: 100%;
-    padding: 10px;
-    font-size: 18px;
-    margin-bottom: 10px;
+function clearDisplay() {
+  display.value = '';
 }
 
-.buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 5px;
+function calculate() {
+  try {
+    let result = eval(display.value);
+    history.push(display.value + ' = ' + result);
+    display.value = result;
+    updateHistory();
+  } catch (error) {
+    display.value = 'Error';
+  }
 }
 
-button {
-    padding: 10px;
-    font-size: 18px;
-    cursor: pointer;
-}
-
-.content {
-    background: linear-gradient(repeat, red blue)
+function updateHistory() {
+  historyList.innerHTML = '';
+  history.forEach(item => {
+    let li = document.createElement('li');
+    li.textContent = item;
+    historyList.appendChild(li);
+  });
 }
