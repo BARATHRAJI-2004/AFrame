@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculator</title>
+  <title>Animated Calculator</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -28,10 +28,13 @@
       <button class="operator" onclick="addToDisplay('/')">/</button>
       <button class="clear" onclick="clearDisplay()">C</button>
     </div>
+  </div>
+  <div class="history-container" id="history-container">
     <div class="history">
       <h3>History</h3>
       <ul id="history-list"></ul>
     </div>
+    <button class="close-history" onclick="toggleHistory()">Close</button>
   </div>
 
   <script src="script.js"></script>
