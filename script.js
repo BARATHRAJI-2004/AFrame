@@ -1,42 +1,25 @@
-.calculator {
-  width: 300px;
-  margin: 0 auto;
-  text-align: center;
+function calculate() {
+  try {
+    let result = eval(display.value);
+    history.push(display.value + ' = ' + result.toFixed(2)); // Limit result to 2 decimal places
+    display.value = result.toFixed(2); // Update display with limited decimal places
+    updateHistory();
+  } catch (error) {
+    display.value = 'Error';
+  }
 }
 
-.display {
-  width: 100%;
-  height: 50px;
-  margin-bottom: 10px;
-  font-size: 24px;
+function clearHistory() {
+  history = [];
+  updateHistory();
 }
 
-.buttons {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 5px;
-}
-
-.buttons button {
-  width: 100%;
-  height: 50px;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.history {
-  margin-top: 20px;
-}
-
-.history h3 {
-  margin-bottom: 10px;
-}
-
-#history-list {
-  list-style-type: none;
-  padding: 0;
-}
-
-#history-list li {
-  margin-bottom: 5px;
-}
+// Keyboard support
+document.addEventListener('keydown', function(event) {
+  const key = event.key;
+  if (!isNaN(key) || key === '.' || key === '+' || key === '-' || key === '*' || key === '/' || key === 'Enter') {
+    addToDisplay(key);
+  } else if (key === 'Escape') {
+    clearDisplay();
+  }
+});
