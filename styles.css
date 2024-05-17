@@ -37,7 +37,7 @@
 }
 
 .buttons button:hover {
-    background-color: #e0e0e0;
+    background-color: #ffffff6e;
 }
 
 .operator {
@@ -91,13 +91,4 @@
 
 body {
     background-color: #fff;
-}
-
-.frame {
-    background-color: #fff;
-    background-clip: border-box;
-}
-
-.frame:hover {
-    background-color: #ec47052f;
 }
