@@ -2,7 +2,7 @@
     width: 300px;
     margin: 0 auto;
     padding: 20px;
-    background-color: transparent;
+    background-image: url(Black-Screen-HD-Wallpaper.jpg);
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
@@ -87,4 +87,17 @@
     border-radius: 5px;
     padding: 5px 10px;
     cursor: pointer;
+}
+
+body {
+    background-color: #fff;
+}
+
+.frame {
+    background-color: #fff;
+    background-clip: border-box;
+}
+
+.frame:hover {
+    background-color: #ec47052f;
 }
